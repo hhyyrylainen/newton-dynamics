@@ -8,7 +8,7 @@
 # including commercial applications, and to alter it and redistribute it
 # freely.
 
-cmake_minimum_required(VERSION 3.12.0)
+cmake_minimum_required(VERSION 3.10.0)
 
 set (projectName "dContainers")
 message (${projectName})
@@ -24,7 +24,7 @@ if(NEWTON_BUILD_SHARED_LIBS)
     endif(MSVC)
     add_library(${projectName} SHARED ${CPP_SOURCE})
 
-    target_link_libraries (${projectName} newton)
+    target_link_libraries (${projectName} Newton)
 
     if (BUILD_PROFILER)
         target_link_libraries (${projectName} dTimeTracker)
@@ -37,7 +37,7 @@ else(NEWTON_BUILD_SHARED_LIBS)
     add_library(${projectName} STATIC ${CPP_SOURCE})
 endif(NEWTON_BUILD_SHARED_LIBS)
 
-target_link_libraries (${projectName} newton)
+target_link_libraries (${projectName} Newton)
 
 if (MSVC)
 	set_target_properties(${projectName} PROPERTIES COMPILE_FLAGS "/YudContainersStdAfx.h")
